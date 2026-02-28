@@ -1,0 +1,99 @@
+.body {
+    width: 100%;
+    background-color: black;
+    margin: 0;
+}
+
+.main {
+    position: relative;
+    width: 100%;      
+    min-height: 100vh;
+    z-index: 2;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.privateContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: end;
+    position: relative;
+}
+
+.privateBtn{
+    display: inline-flex;
+    height: 40px;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0px;
+    border-radius: 20px;
+    padding: 14px 16px;
+    margin: 12px 15px;
+    color: var(--colors-ghost);
+    cursor: pointer;
+    transition: background-color 0.1s ease;
+    font-weight: 600;
+}
+
+.privateBtn:hover{
+    background-color: #6767673e;
+    color: white;
+}
+
+.privateDescContainer {
+    position: absolute; 
+    top: 55px;
+    right: 15px;
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    font-size: 13px;
+    animation: fadeIn 0.2s ease-in-out alternate;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY();
+    }
+}
+
+.chatContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 1250px;
+    margin-top: 23vh;
+    margin-bottom: auto;
+}
+
+.shortcutText{
+    color: var(--colors-ghost);
+}
+
+.grokTitle{
+    margin-bottom: 30px;
+}
+
+.buttonContainer{
+    display: flex;
+    gap: 8px;
+    margin-top: 24px;
+}
+

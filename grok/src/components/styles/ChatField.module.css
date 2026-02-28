@@ -1,0 +1,431 @@
+.chatContainer{
+    width: 64%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: rgba(47, 47, 47, 0.4);    
+    padding: 8px;
+    gap: 4px;
+    border: 1px solid rgba(116, 116, 116, 0.2);
+}
+
+.chatDetailsContainer{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 15px;
+}
+
+.deepSearchBtn{
+    background-color: var(--colors-black02);
+    border: 1px solid var(--colors-black01);
+    padding: 10px 6px 10px 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.deepSearchBtn:hover{
+    background-color: var(--colors-gray01);
+}
+
+.crossBtn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    border-radius: 100%;
+    display: flex;
+    cursor: pointer;
+}
+
+.crossBtn:hover{
+    background-color: var(--colors-black01);
+}
+
+.chatFieldContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.chatAttachments{
+    position: relative;
+    color: white;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 2px;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: transparent;
+}
+
+.chatAttachmentsDesc{
+    position: absolute;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 8px 12px;
+    border-radius: 8px;
+    z-index: 10;
+    pointer-events: none;
+    font-size: 13px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+.chatAttachments:hover .chatAttachmentsDesc{
+    visibility: visible;
+    opacity: 1;
+}
+
+.chatAttachments svg{
+    margin-top: 2px;
+}
+
+.chatAttachments:hover{
+    background-color: var(--colors-gray01);
+}
+
+.dropdownMenuContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    width: 240px;
+    min-height: 100%;
+    top: 45px;
+    background-color: var(--colors-gray01);
+    border-radius: 16px;
+    padding: 5px;
+    pointer-events: none;
+    animation: fadeIn 0.2s ease alternate;
+    z-index: 20;
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.subMenuContainer{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: max-content;
+    top: 0px;
+    left: 238px;
+    background-color: var(--colors-gray01);
+    border-radius: 16px;
+    padding: 5px;
+    z-index: 30;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    color: white;
+    transition: opacity 0.2s ease;
+}
+
+.hoverableSubMenuBtn::after{
+    position: absolute;
+    content: "";
+    right: -40px;
+    top: 0;
+    z-index: 30;
+    width: 40px;
+    height: 35px;
+}
+
+.hoverableSubMenuBtn:hover + .subMenuContainer, .subMenuContainer:hover{
+    visibility: visible;
+    opacity: 1;
+    animation: popUp 0.1s ease alternate;
+}
+
+@keyframes popUp {
+    0%{
+        transform: scale(0.5);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.chatInput{
+    width: 80%;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    color: white;
+}
+
+.chatInput::placeholder{
+    color: rgba(255, 255, 255, 0.518);
+}
+
+.chatInput:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.chatInput::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Model Selection */
+
+.chatModelBtn{
+    color: white;
+    font-size: 14px;
+    display: flex;
+	position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 12px 15px;
+    border: none;
+    background-color: transparent;
+}
+
+.chatModelBtn:hover, .chatModelBtn:active{
+    background-color: var(--colors-gray02);
+}
+
+.chatModelText{
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}  
+
+.chatModelContainerWrapper{
+    position: absolute;
+    content: "";
+	top: 45px;
+    left: -190px;
+    z-index: 20;
+    padding-right: 4px;
+    background-color: var(--colors-gray01);
+    border-radius: 15px;
+}
+
+.chatModelContainer{
+	height: 365px;
+    width: 310px;
+	background-color: var(--colors-gray01);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border-radius: 15px;
+    padding: 5px;
+    scrollbar-gutter: stable;
+    padding-right: 10px;
+
+}
+
+.chatModelContainer::-webkit-scrollbar{
+  width: 4px;
+  background-color: transparent;
+}
+
+.chatModelContainer::-webkit-scrollbar-thumb{
+  background-color: var(--colors-gray03);
+  border-radius: 20px;
+
+  transition: background-color 0.3s ease;
+}
+
+.chatModelContainer::-webkit-scrollbar-track {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.chatModelContainer::-webkit-scrollbar-thumb:hover{
+  background-color: white !important;
+}
+
+.chatModelContainerWrapper:hover .chatModelContainer::-webkit-scrollbar-thumb{
+  background-color: var(--colors-gray04);
+}
+
+.upgradeSuperGrokBtn{
+  display: flex;
+	color: white;
+	border: 2px solid var(--colors-gray04) !important;
+	border-radius: 20px;
+	background-color: var(--colors-gray02);
+	width: 100%;
+	justify-content: flex-start;
+	padding: 5px 10px 10px 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.upgradeSuperGrokBtn:hover{
+	background-color: var(--colors-black01);
+}
+
+.upgradeSuperGrokTextContainer{
+  display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.upgradeSuperGrokText{
+	padding-left: 5px;
+	font-size: 12.5px;
+	color: var(--colors-ghost);
+}
+
+.upgradeSuperGrokFreeBtn{
+	display: flex;
+	background-color: white;
+	color: black;
+	padding: 8px 10px;
+	border: none;
+	border-radius: 20px;
+	margin-left: auto;
+	margin-top: auto;
+	font-weight: 600;
+}
+
+/* Dictation Button */
+
+.dictationBtn{
+    position: relative;
+    border: 1px solid var(--colors-black01);
+    background-color: transparent;
+    color: white;
+    padding: 10px;
+    margin-right: 2px;
+    border-radius: 100%;
+    display: flex;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.dictationBtn:hover{
+    background-color: var(--colors-gray01);
+}
+
+.dictationTooltip{
+    display: none;
+    position: absolute;
+    bottom: 45px;
+    right: 0;
+    transform: translateX(35%);
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    font-size: 13px;
+    animation: fadeIn 0.2s ease-in-out alternate;
+}
+
+.dictationBtn:hover .dictationTooltip{
+    display: flex;
+}
+
+/* Voice Button */
+
+.audioWaveContainer {
+  height: 2.5rem;      
+  aspect-ratio: 1 / 1; 
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.125rem;       
+  border: none;
+  border-radius: 9999px;
+  background-color: white; 
+  color: var(--colors-black);
+  box-shadow: inset 0 0 0 1px transparent; 
+  isolation: isolate;
+  cursor: pointer;
+}
+
+.audioWaveContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background-color: white;
+  z-index: 0;
+}
+
+.waveBar {
+  width: 0.125rem; 
+  position: relative;
+  z-index: 10;
+  border-radius: 9999px;
+  background-color: currentColor;
+  transform-origin: center; 
+  will-change: transform;
+}
+
+.waveAnimation{
+    animation: sound-wave 0.4s ease-in-out alternate;
+}
+
+@keyframes sound-wave {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(1.5);
+  }
+}
+
+.waveBar:nth-child(1) { animation-delay: 0.1s; }
+.waveBar:nth-child(2) { animation-delay: 0.15s; }
+.waveBar:nth-child(3) { animation-delay: 0.2s; }
+.waveBar:nth-child(4) { animation-delay: 0.25s; }
+.waveBar:nth-child(5) { animation-delay: 0.3s; }
+.waveBar:nth-child(6) { animation-delay: 0.35s; }
+
+.audioWaveDesc{
+    position: absolute;
+    bottom: 45px;
+    right: 0;
+    transform: translateX(35%);
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+    font-size: 13px;
+    animation: fadeIn 0.2s ease-in-out alternate;
+}

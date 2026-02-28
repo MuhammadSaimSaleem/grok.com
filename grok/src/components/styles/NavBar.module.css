@@ -1,0 +1,135 @@
+.main{
+  border-right: 1px solid rgba(59, 59, 59, 0.5);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  transition: width 0.3s ease-in;
+}
+
+.navBar{
+  padding: 10px 0 10px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navBar.collapsed{
+  padding: 10px 0px 10px 8px;
+}
+
+.grokBtn{
+  background: transparent;
+  color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  transition: background-color 0.1s ease;
+  margin: 1px 0px 15px 3px;
+}
+
+.grokBtn:hover{
+  background-color: rgba(59, 59, 59, 0.4 );
+}
+
+.navLinks{
+  margin-right: 2.5px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  transition: mask-image 0.3s ease;
+}
+
+.navLinks.collapsed{
+  margin: 0;
+  overflow: visible;
+}
+
+.navLinks::-webkit-scrollbar{
+  width: 5px;
+  background-color: transparent;
+}
+
+.navLinks::-webkit-scrollbar-thumb{
+  background-color: var(--colors-black03);
+  border-radius: 20px;
+
+  background-clip: content-box;
+  height: 200px;
+
+  transition: background-color 0.3s ease;
+}
+
+.navLinks::-webkit-scrollbar-thumb:hover{
+  background-color: white !important;
+}
+
+.navLinksWrapper:hover .navLinks::-webkit-scrollbar-thumb{
+  background-color: var(--colors-gray01);
+}
+
+.navBtns{
+  padding: 0px 8px 13px 13px;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navBtns.collapsed{
+  padding: 0;
+  margin: auto 10px 13px 0px;
+}
+
+.profileImg {
+  border-radius: 100%;
+  width: 30px;
+  top: 3px;
+  position: absolute;
+  transition: top 0.5s ease;
+}
+
+.profileImg.collapsed{
+  position: absolute;
+  content: "";
+  top: -40px;
+  left: 13px;
+}
+
+.toggleMenuIcon{
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+.toggleMenuIcon.collapsed{
+  transform: rotate(0deg);
+}
+
+.toggleMenuBtn{
+  display: flex;
+  background-color: transparent;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  color: var(--colors-ghost);
+  padding: 10px;
+  
+  margin-left: auto;
+}
+
+.toggleMenuBtn:hover{
+  background-color: var(--colors-black02);
+}
+
+.toggleMenuBtn.collapsed{
+  margin-right: 0px;
+}

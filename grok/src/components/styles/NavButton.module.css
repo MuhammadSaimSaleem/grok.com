@@ -1,0 +1,456 @@
+.pageBtn{
+    display: inline-flex;
+    background-color: transparent;
+    border: 0;
+    border-radius: 10px;
+    margin: 4px 0  0 2px;
+    padding: 14px 10px 14px 0;
+    align-items: center;
+    width: 98%;
+    height: 36px;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: background-color 0.1s ease;
+}
+
+.pageBtnActive{
+    background-color: rgba(255, 255, 255, 10%);
+}
+
+.pageBtn:hover{
+    background-color: rgba(255, 255, 255, 10%);
+}
+
+.pageBtnCollapsed{
+    margin-top: 4px;
+    padding-right: 0px;
+    width: 35px;
+    border-radius: 12px;
+}
+
+.iconWrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0px 8px 8px;
+    color: inherit;
+}
+
+.titleText{
+    color: white;
+    font-weight: 600;
+}
+
+.shortcutContainer{
+    margin-left: auto;
+}
+
+.shortcutText{
+    color: rgba(255, 255, 255, 50%);
+    padding-right: 5px;
+}
+
+.hoveredTooltip{
+    position: absolute; 
+    top: 0px;
+    left: 40px;
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 8px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    font-size: 13px;
+    animation: fadeIn 0.2s ease-in-out alternate;
+}
+
+
+/* Imagine Styles */
+
+.blueDot{
+    border: 3.5px solid rgb(78, 128, 222);
+    border-radius: 9999%;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+/* Projects Button Styles */
+
+.pageBtn:hover .createProjectBtn{
+    display: inline-flex;
+}
+
+.createProjectBtn{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 1px 6px 2px 6px;
+    border: none;
+    color: var(--colors-ghost);
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: 2px;
+    cursor: pointer;
+    transition: background-color 0.1s ease-in;
+}
+
+.createProjectBtn:hover{
+    background-color: rgba(48, 48, 48, 0.463);
+}
+
+.pageBtn:has(.createProjectBtn:hover){
+    background-color: transparent;
+}
+
+.additionalIcon{
+    display: flex;
+    margin-right: 10px;
+}
+
+.flyoutProjectContainer, .flyoutHistoryContainer{
+    position: absolute; 
+    width: 240px;
+    min-height: 100%;
+    top: 0px;
+    left: 40px;
+
+    color: white;
+    background-color: var(--colors-gray01);
+    padding: 10px;
+    border-radius: 16px;
+    z-index: 10;
+
+    pointer-events: none;
+    cursor: auto;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flyoutProjectContainer::after, .flyoutHistoryContainer::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.pageBtnCollapsed:hover .flyoutProjectContainer, .pageBtnCollapsed:hover .flyoutHistoryContainer{
+    visibility: visible;
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.flyoutProjectHeader, .flyoutHistoryHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.flyoutProjectCreationIconBtn{
+    background-color: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--colors-ghost);
+    padding: 2px 6px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.flyoutProjectCreationIconBtn:hover{
+    color: white;
+    background-color: var(--colors-black01);
+}
+
+.flyoutProjectBody, .flyoutHistoryBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.flyoutProjectCreationBtn{
+    background-color: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.447);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 14px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.flyoutProjectCreationBtn:hover{
+    background-color: rgba(128, 128, 128, 0.173);
+}
+
+
+
+/* History Button Styles */
+
+.dropdownBtn {
+    position: relative;
+    color: white;
+    background-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 3;
+    padding: 1px;
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease;
+}
+
+.dropdownBtn::after {
+    content: "";
+    position: absolute;
+    top: -4px;
+    bottom: -4px;
+    left: -4px;
+    right: -4px;
+    background-color: transparent;
+    border-radius: 10px;
+    z-index: -1;
+    transition: background-color 0.2s ease;
+}
+
+.dropdownBtn:hover::after {
+    background-color: var(--colors-gray01);
+}
+
+.dropdownBtn svg{
+    transition: transform 0.2s ease-in-out;
+
+}
+
+.dropdownBtn.dropdownBtnClicked svg{
+    transform: rotate(90deg);
+}
+
+.dropdownContainer{
+    display: flex;
+    flex-direction: column;
+    margin: 6px 0px 0px 20px;
+    border-left: 1px solid var(--colors-black02);
+    padding-left: 10px;
+    font-weight: 500;
+    animation: fadeIn 0.3s ease-in-out alternate;
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
+.dateContainer, .projectContainer{
+    color: var(--colors-ghost);
+    font-size: 13px;
+    margin-bottom: 5px;
+    
+}
+
+.dropdownItemContainer{
+    color: white;
+    font-size: 14px;
+}
+
+.dateCategory{
+    padding: 0 0 8px 10px;
+}
+
+.chatItemBtn{
+    display: flex;
+    align-items: center;
+    color: white;
+    background-color: transparent;
+    border: none;
+    height: 34px;
+    border-radius: 10px;
+    padding: 0 10px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    mask-image: linear-gradient(to right, black 70%, transparent 90%);
+}
+
+.chatItemBtn:hover{
+    mask-image: none;
+    background-color: rgba(255, 255, 255, 10%);
+}
+
+.chatItemBtn:hover .chatItemTitle {
+    mask-image: linear-gradient(to right, black 65%, transparent 90%);
+}
+
+.chatItemTitle{
+    position: relative;
+    flex-grow: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-right: 30px;
+}
+
+.seeAllBtn{
+    color: var(--colors-ghost);
+    font-size: 13px;
+    background-color: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+.seeAllBtn:hover{
+    color: white;
+}
+
+.menuDotsBtn{
+    display: flex;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    right: 8px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 4px 3px;
+    border-radius: 6px;
+    cursor: pointer;
+    z-index: 40;
+    transition: visibility 0.1s ease, opacity 0.1s ease;
+}
+
+.menuDotsBtn:hover{
+    background-color: var(--colors-black01);
+}
+
+.chatItemBtn:hover .menuDotsBtn {
+    visibility: visible;
+    opacity: 1;
+}
+
+.flyoutHistoryContainer{
+  min-height: 200px;
+  height: auto;
+  padding: 0px;
+  z-index: 999;
+  
+  white-space: nowrap;
+}
+
+.flyoutHistoryHeader{
+  font-weight: 600;
+  padding: 15px 20px;
+}
+
+.flyoutHistoryBody{
+  align-items: flex-start;
+  padding: 0 10px 20px 10px;
+  margin: 0;
+  gap: 5px;
+}
+
+.flyoutDateCategory{
+  color: var(--colors-ghost);
+  padding-left: 10px;
+}
+
+.flyoutChatItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: transparent;
+  border: none;
+  height: 34px;
+  border-radius: 10px;
+  padding: 0 10px;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  z-index: 1;
+  pointer-events: auto;
+  mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
+}
+
+.flyoutChatItem:hover{
+  background-color: rgb(85, 85, 85);
+  mask-image: none;
+}
+
+.flyoutChatItemTitle{
+  overflow: hidden;
+  padding-right: 30px;
+  margin-right: auto;
+}
+
+.flyoutChatItem:hover .flyoutChatItemTitle{
+  mask-image: linear-gradient(to right, black calc(100% - 40px), transparent 100%);
+}
+
+.flyoutChatItemTitleTooltip, .chatItemTitleTooltip{
+  position: absolute; 
+  top: -34px;
+  color: white;
+  background-color: var(--colors-gray01);
+  border: 1px solid rgba(101, 101, 101, 0.3);
+  padding: 8px 12px;
+  border-radius: 8px;
+  white-space: nowrap;
+  z-index: 20;
+  pointer-events: none;
+  font-size: 13px;
+  animation: fadeIn 0.2s ease-in-out alternate;
+}
+
+.flyoutChatItem:hover .flyoutChatItemTitleTooltip{
+  display: block;
+}
+
+.flyoutSeeAllBtn{
+  color: var(--colors-ghost);
+  font-size: 13px;
+  background-color: transparent;
+  border: none;
+  padding: 5px 0 0 10px;
+  cursor: pointer;
+}
+
+.flyoutSeeAllBtn:hover{
+  color: white;
+}
+
+/* Menu */
+
+.menuContainer{
+    border-radius: 16px;
+    padding: 5px;
+    width: 144px;
+    height: 124px;
+}

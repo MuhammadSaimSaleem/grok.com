@@ -1,0 +1,221 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(8px);
+  transition: backdrop-filter 0.3s ease;
+}
+
+.content {
+  max-width: 675px;
+  max-height: 550px;
+  width: 100%;
+  background-color: #101113;
+  border-radius: 25px;
+  border: 1px solid var(--colors-gray02);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: var(--colors-ghost);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.header button:hover {
+  background-color: var(--colors-black01);
+}
+
+.iconSelectorBtn {
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid var(--colors-darkGray);
+}
+
+.closeModalBtn {
+  height: fit-content;
+  margin-left: auto;
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.projectNameInput {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  color: white;
+  width: 100%;
+}
+
+.projectNameInput:focus {
+  outline: none;
+}
+
+.instructionsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0 20px 0;
+}
+
+.instructionsText, 
+.modeText {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px 4px;
+}
+
+.instructionsTextArea {
+  background-color: transparent;
+  padding: 14px;
+  min-height: 120px;
+  color: white;
+  border: 1px solid var(--colors-darkGray);
+  border-radius: 12px;
+  resize: none;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.instructionsTextArea:focus {
+  outline: none;
+  border-color: var(--colors-ghost);
+}
+
+.modeContainer {
+  position: relative;
+  width: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--colors-darkGray);
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s;
+}
+
+.dropdownTrigger:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.triggerContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  background: #262626;
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  z-index: 100;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.option.active {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.optionIcon {
+  margin-right: 14px;
+  color: white;
+  opacity: 0.9;
+}
+
+.optionText {
+  flex-grow: 1;
+}
+
+.optionTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+}
+
+.optionDesc {
+  font-size: 13px;
+  color: #a0a0a0;
+  margin-top: 4px;
+}
+
+.check {
+  color: white;
+  margin-left: 10px;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.2s ease;
+}
+
+.submitContainer {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submitBtn {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.submitBtn:hover {
+  opacity: 0.8;
+}

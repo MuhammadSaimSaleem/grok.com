@@ -1,0 +1,7 @@
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  size?: number;
+}
+
+export const SearchIcon = ({ size = 18, ...props }: IconProps) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" {...props}><defs><clipPath id="__lottie_element_2"><rect width="24" height="24" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_2)"><g transform="matrix(1.0002317428588867,0.0003370542253833264,-0.0003370542253833264,1.0002317428588867,12.001073837280273,11.501073837280273)" opacity="1"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4" stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="2" d=" M7,-0.75 C7,1.3899999856948853 6.131999969482422,3.328000068664551 4.730000019073486,4.730000019073486 C3.328000068664551,6.131999969482422 1.3899999856948853,7 -0.75,7 C-5.03000020980835,7 -8.5,3.5299999713897705 -8.5,-0.75 C-8.5,-5.03000020980835 -5.03000020980835,-8.5 -0.75,-8.5 C3.5299999713897705,-8.5 7,-5.03000020980835 7,-0.75z M4.730000019073486,4.730000019073486 C4.730000019073486,4.730000019073486 8.5,8.5 8.5,8.5"></path></g></g></g></svg>
+);
